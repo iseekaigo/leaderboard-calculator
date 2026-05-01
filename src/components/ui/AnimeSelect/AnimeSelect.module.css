@@ -1,0 +1,74 @@
+/* Floating label select with custom chevron */
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.select {
+  width: 100%;
+  padding: 22px 40px 6px 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+  outline: none;
+  min-height: 52px;
+  cursor: pointer;
+}
+
+.select:focus {
+  border-color: var(--color-accent-violet);
+  box-shadow: 0 0 0 3px var(--color-border-focus);
+}
+
+.label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+  transition:
+    transform var(--transition-base),
+    font-size var(--transition-base),
+    color var(--transition-base);
+  transform-origin: left top;
+  background: transparent;
+  padding: 0 4px;
+}
+
+.select:focus + .label,
+.filled {
+  transform: translateY(-26px) scale(0.78);
+  color: var(--color-accent-violet);
+}
+
+/* Custom chevron */
+.arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  border-right: 2px solid var(--color-accent-violet);
+  border-bottom: 2px solid var(--color-accent-violet);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform var(--transition-base);
+}
+
+.select:focus ~ .arrow {
+  transform: translateY(-30%) rotate(225deg);
+}

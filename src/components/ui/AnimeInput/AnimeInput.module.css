@@ -1,0 +1,71 @@
+/* Floating label input with underline focus effect */
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 14px 6px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+  outline: none;
+  min-height: 52px;
+}
+
+.input:focus {
+  border-color: var(--color-accent-violet);
+  box-shadow: 0 0 0 3px var(--color-border-focus);
+}
+
+.label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+  transition:
+    transform var(--transition-base),
+    font-size var(--transition-base),
+    color var(--transition-base);
+  transform-origin: left top;
+  background: transparent;
+  padding: 0 4px;
+}
+
+/* When input has value or is focused, float the label up */
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label,
+.filled {
+  transform: translateY(-26px) scale(0.78);
+  color: var(--color-accent-violet);
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-base);
+}
+
+.input:focus ~ .underline {
+  transform: scaleX(1);
+}

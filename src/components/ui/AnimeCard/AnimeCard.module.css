@@ -1,0 +1,28 @@
+.card {
+  position: relative;
+  z-index: var(--z-above);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  padding: clamp(20px, 4vw, 40px);
+  overflow: hidden;
+}
+
+/* Subtle inner glow accent at top */
+.card::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-violet-soft),
+    transparent
+  );
+  opacity: 0.6;
+}

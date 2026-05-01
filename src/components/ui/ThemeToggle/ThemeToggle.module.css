@@ -1,0 +1,46 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  color: var(--color-accent-violet);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-fast),
+    box-shadow var(--transition-base);
+  outline: none;
+}
+
+.toggle:hover {
+  background: var(--color-bg-elevated);
+  border-color: var(--color-accent-violet-soft);
+  transform: translateY(-2px) rotate(12deg);
+  box-shadow: var(--shadow-md);
+}
+
+.toggle:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-border-focus);
+}
+
+.icon {
+  display: inline-flex;
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+
+.sunActive {
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+.moonActive {
+  transform: rotate(0deg);
+  opacity: 1;
+}

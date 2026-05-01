@@ -1,0 +1,123 @@
+.page {
+  position: relative;
+  z-index: var(--z-above);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: clamp(16px, 4vw, 48px);
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-violet);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent-pink);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dateLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-secondary);
+  padding-left: 4px;
+  margin-bottom: 2px;
+}
+
+.dateWrapper {
+  width: 100%;
+}
+
+.dateInput {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+  outline: none;
+  min-height: 52px;
+}
+
+.dateInput:focus {
+  border-color: var(--color-accent-violet);
+  box-shadow: 0 0 0 3px var(--color-border-focus);
+}
+
+.actions {
+  margin-top: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .page {
+    padding: 16px;
+  }
+  .header {
+    margin-bottom: 14px;
+  }
+  .card {
+    padding: 18px;
+  }
+}
